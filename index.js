@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 const app = express();
 
 const urlApi = 'https://api.themoviedb.org/3/'
@@ -26,6 +27,7 @@ for (let i = 0; i < 300; i++) {
             console.log(error);
         })
 }
+app.use(cors());
 
 app.get('/movies', (req,res) => {
     res.status(200).json(movies)
@@ -58,6 +60,6 @@ app.get('/answer/:actor/:movie', (req,res) => {
         })
 
 })
-app.listen(3000, () => {
+app.listen(8000, () => {
 
 })
